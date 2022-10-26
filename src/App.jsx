@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import { getCategories } from "../src/services/firebaseCRUD";
 
 function App() {
 	const [count, setCount] = useState(0);
-
+	getCategories();
 	return (
 		<div className='App'>
 			<div>
