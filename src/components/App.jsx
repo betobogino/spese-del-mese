@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+import reactLogo from '../assets/react.svg';
 import './App.css';
-import { getCategories } from "../src/services/firebaseCRUD";
+import { getCategories } from "../services/firebaseCRUD";
 
 function App() {
 	const [count, setCount] = useState(0);
-	getCategories();
+	
+	getCategories()
+		.then(data => data.docs.forEach(e => {console.log(e.data())}))
+	
 	return (
 		<div className='App'>
 			<div>
