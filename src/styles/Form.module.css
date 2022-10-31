@@ -1,0 +1,33 @@
+.formContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    width: 50vw;
+    height: 60vh;
+    border: 1px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.formTitle {
+    font-size: 1.5rem;
+}
+.formIcon {
+
+}
+.formAmount {
+
+}
+.formObservations {
+
+}
+.formControl {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}

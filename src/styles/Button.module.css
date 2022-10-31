@@ -1,0 +1,8 @@
+.btnSpent {
+    width: 130px;
+    height: 150px;
+    margin: 4px 8px;
+}
+.btnTitle {
+    text-transform: capitalize;
+}

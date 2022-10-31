@@ -10,6 +10,15 @@ const db = getFirestore(app);
 
 export const getCategories = async () => {
   const categories = await getDocs(collection(db, "categories"));
+  const categoriesReturn = [];
 
-  return categories;
+  categories.forEach(category => {
+    const buttonAux = {
+        id: category.id,
+        data: category.data()
+    }
+    categoriesReturn.push(buttonAux)
+  })
+
+  return categoriesReturn;
 }  
