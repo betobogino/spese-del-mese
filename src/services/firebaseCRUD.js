@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, getDocs, collection, getDoc, doc } from "firebase/firestore";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -22,3 +22,14 @@ export const getCategories = async () => {
 
   return categoriesReturn;
 }  
+
+export const getCategory = async (id) => {
+  const category = await getDoc(doc(db, "categories", id));
+
+  const categoryReturn = {
+    name: category.data().name, 
+    icon: category.data().icon
+  }
+  
+  return categoryReturn;
+}

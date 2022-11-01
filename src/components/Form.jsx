@@ -4,7 +4,8 @@ import styles from '../styles/Form.module.css';
 const Form = ({name, icon}) => {
   return (
     <div className={styles.form}>
-        <p className={styles.formTitle}>{name.toUpperCase()}</p>
+        {/* <p className={styles.formTitle}>{name.toUpperCase()}</p> */}
+        <p className={styles.formTitle}>{name}</p>
         <img className={styles.formIcon} src={`/public/icons/${icon}`} alt="" />
         <label className={styles.formAmount}>
             <input type="text" placeholder='Monto'/>
