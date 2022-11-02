@@ -1,8 +1,15 @@
-.home {
+.home,
+.homeLoading {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+.homeLoading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navTop {
     height: 15%;
