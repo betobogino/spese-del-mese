@@ -1,0 +1,28 @@
+.totalContainer {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.accumulate,
+.balance {
+    border: 1px solid;
+    width: 45%;
+    border-radius: 5px;
+    text-align: center;
+}
+.balance {
+    margin-top: 10px;
+}
+.entries,
+.spents {
+    font-size: 1.5rem;
+}
+.entries {
+    color: #3ee339;
+}
+.spents { 
+    color: #e33c39;
+}

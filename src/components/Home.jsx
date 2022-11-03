@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { getCategories } from "../services/firebaseCRUD";
 
 import styles from '../styles/Home.module.css';
-import ContainerButton from './containers/ContainerButton';
-import Loader from './Loader';
 
+import ContainerButton from './containers/ContainerButton';
+import ContainerAmount from './containers/ContainerAmount';
 import Button from './Button';
+import Loader from './Loader';
 
 function Home() {
 	const [loading, setLoading] = useState(true);
@@ -39,15 +40,7 @@ function Home() {
 					</div>
 				</div>
 				<div className={styles.body}>
-					<div className={styles.totalContainer}>
-						<div className={styles.accumulate}>
-							<p>Ingresos</p>
-							<p>Gastos</p>
-						</div>
-						<div className={styles.balance}>
-							<p>Saldo</p>
-						</div>
-					</div>
+					<ContainerAmount />
 					<ContainerButton>
 						{
 							buttons.map(button => {
