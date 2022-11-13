@@ -8,24 +8,24 @@ const ContainerAmount = () => {
     const [spents, setSpents] = useState(0);
 
     useEffect(() => {
-        getEntries()
-            .then(entries => {
-                // console.log('entries: ',entries)
-                const sumEntries = entries.map(entry => entry.data.amount)
-                console.log(sumEntries)
-            })
+        console.log("useEffect");
+        let entriesAcumulate = 0;
 
-        getSpents()
-            // .then(data => console.log('spents: ', data))    
+        getEntries()
+            .then(entriesDB => {
+                entriesDB.forEach(entry => {
+                    entriesAcumulate += entry.data.amount;
+                    
+                    setEntries(entriesAcumulate);
+                })
+            });
     }, []);
 
     return (
         <div className={styles.totalContainer}>
             <div className={styles.accumulate}>
-                {/* <p>Ingresos</p> */}
-                <p className={styles.entries}>{entries}</p>
-                {/* <p>Gastos</p> */}
-                <p className={styles.spents}>{spents}</p>
+                <p className={styles.entries}>${entries}</p>
+                <p className={styles.spents}>${spents}</p>
             </div>
             <div className={styles.balance}>
                 <p>Saldo</p>

@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getFirestore, getDocs, collection, getDoc, doc } from "firebase/firestore";
+import { getFirestore, getDocs, collection, getDoc, doc, query, where } from "firebase/firestore";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 // Obtiene todas las categorias
 export const getCategories = async () => {
-  const categories = await getDocs(collection(db, "categories"));
+  const categories = await getDocs(query(collection(db, "categories"), where("type", "==", "spent")));
   const categoriesReturn = [];
 
   categories.forEach(category => {
