@@ -18,14 +18,14 @@ const ContainerAmount = () => {
                     
                     setEntries(entriesAcumulate);
                 })
-            });
+            });    
     }, []);
 
     return (
         <div className={styles.totalContainer}>
             <div className={styles.accumulate}>
-                <p className={styles.entries}>${entries}</p>
-                <p className={styles.spents}>${spents}</p>
+                <p className={styles.entries}>$ {entries}</p>
+                <p className={styles.spents}>$ {spents}</p>
             </div>
             <div className={styles.balance}>
                 <p>Saldo</p>

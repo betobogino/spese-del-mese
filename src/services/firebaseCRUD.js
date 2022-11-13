@@ -60,3 +60,15 @@ export const getSpents = async () => {
 
   return spentsReturn;
 }
+
+// Obtiene un gasto por name
+export const getSpent = async (name) => {
+  const spents = await getDocs(query(collection(db, "spents"), where("nameCategory", "==", name)));
+  let spentAcumulate = 0;
+
+  spents.forEach(spent => {
+    spentAcumulate += spent.data().amount;
+  })
+  
+  return spentAcumulate;
+}

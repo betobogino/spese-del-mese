@@ -44,7 +44,7 @@ function Home() {
 					<ContainerButton>
 						{
 							buttons.map(button => {
-								return <Button key={button.id} id={button.id} icon={button.data.icon} name={button.data.name} amount={button.data.amount}/>
+								return <Button key={button.id} id={button.id} icon={button.data.icon} name={button.data.name} />
 							})
 						}
 					</ContainerButton>
