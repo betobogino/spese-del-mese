@@ -3,13 +3,32 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import styles from '../styles/Form.module.css';
 import { insertSpent } from '../services/firebaseCRUD';
+import Swal from 'sweetalert2';
 
 const Form = ({name, icon}) => {
 	const { register, handleSubmit, formState:{ errors } } = useForm();
 
 	const addSpent = (event) => {
-		insertSpent(event);	
-		// console.log(event.date)
+		insertSpent(event)
+			.then(data => {	
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: 'Gasto cargado con éxito',
+					showConfirmButton: false,
+					timer: 1000
+				})
+			})
+			.catch(err => {
+				console.log(err)
+				Swal.fire({
+					position: 'center',
+					icon: 'danger',
+					title: 'Ocurrio un problema al intentar cargar el gasto',
+					showConfirmButton: false,
+					timer: 1000
+				})
+			})
 	}
 
   	return (
