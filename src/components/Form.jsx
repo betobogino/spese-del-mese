@@ -7,23 +7,20 @@ import { insertSpent } from '../services/firebaseCRUD';
 const Form = ({name, icon}) => {
 	const { register, handleSubmit, formState:{ errors } } = useForm();
 
-	const pruebaSpent = (event) => {
-		console.log(event)
+	const addSpent = (event) => {
+		insertSpent(event);	
+		// console.log(event.date)
 	}
 
-	useEffect(() => {	
-
-	}, []);
-
   	return (
-		<form className={styles.form} onSubmit={handleSubmit(pruebaSpent)}>
-			<input {...register("name")} className={styles.formTitle} defaultValue={name} readOnly={true}/>
+		<form className={styles.form} onSubmit={handleSubmit(addSpent)}>
+			<input {...register("nameCategory")} className={styles.formTitle} defaultValue={name} readOnly={true}/>
 			<img className={styles.formIcon} src={`/public/icons/${icon}`} alt="" />
 			<label className={styles.formAmount}>
-				<input {...register("amount", { required: true }) } type="text" placeholder='Monto'/>
+				<input {...register("amount", { required: true }) } type="number" placeholder='Monto'/>
 				<p className={styles.formErrorMsj}>{errors.amount && 'Debe ingresar el monto del gasto'}</p>
 			</label>
-			<input {...register("date", { required: true })} className={styles.formDate} type="date"/>
+			<input {...register("date", { required: true })} className={styles.formDate} type="datetime-local"/>
 			<p className={styles.formErrorMsj}>{errors.date && 'Debe ingresar la fecha del gasto'}</p>
 			<label className={styles.formObservations}>
 				<textarea {...register("observations", { required: true })} type="text" cols={"50"} rows={"5"}/>

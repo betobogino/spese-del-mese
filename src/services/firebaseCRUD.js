@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getFirestore, getDocs, collection, getDoc, doc, query, where, addDoc } from "firebase/firestore";
+import { getFirestore, getDocs, collection, getDoc, doc, query, where, addDoc, Timestamp } from "firebase/firestore";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -77,9 +77,12 @@ export const getSpent = async (name) => {
 }
 
 // Inserta un nuevo gasto
-export const insertSpent = async () => {
+export const insertSpent = async ({amount,date,nameCategory,observations}) => {
     const docRef = await addDoc(collection(db, "spents"), {
-        
+        amount: Number(amount),
+        date: Timestamp.fromDate(new Date(date)),
+        nameCategory,
+        observations 
     });
     console.log("Document written with ID: ", docRef.id);
 }
