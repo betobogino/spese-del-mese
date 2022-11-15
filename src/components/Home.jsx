@@ -5,8 +5,11 @@ import styles from '../styles/Home.module.css';
 
 import ContainerButton from './containers/ContainerButton';
 import ContainerAmount from './containers/ContainerAmount';
+import ContainerSidebar from './containers/ContainerSidebar';
+import SidebarLeft from './SibedarLeft';
 import Button from './Button';
 import Loader from './Loader';
+import { Link } from 'react-router-dom';
 
 function Home() {
 	const [loading, setLoading] = useState(true);
@@ -29,10 +32,16 @@ function Home() {
 				<Loader /> 
 			</div>
 			: 
+			<>	
+			<ContainerSidebar>
+				<SidebarLeft />
+			</ContainerSidebar>
 			<div className={styles.home}>
 				<div className={styles.navTop}>
 					<div>
-						<button className={styles.btnControl}>|||</button>
+						<Link to="/sidebar">
+							<button className={styles.btnControl}>|||</button>
+						</Link>
 						<button className={styles.btnControl}>{`<`}</button>
 						<p>Díario</p>
 						<button className={styles.btnControl}>{`>`}</button>
@@ -50,6 +59,7 @@ function Home() {
 					</ContainerButton>
 				</div>
 			</div>
+			</>
 		}
 		</>
 	);

@@ -1,0 +1,32 @@
+.sidebar {
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    opacity: .5;
+}
+.sidebarLeft {
+    background: #1a1a1a;
+    opacity: 1;
+    height: 100%;
+    width: 20%;
+    border-right: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebarTop,
+.sidebarBottom {
+    width: 100%;
+    padding: 5px;
+}
+.sidebarBottom {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+button {
+    width: 100%;
+}
