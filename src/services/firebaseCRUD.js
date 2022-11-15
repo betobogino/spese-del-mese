@@ -86,3 +86,5 @@ export const insertSpent = async ({amount,date,nameCategory,observations}) => {
     });
     console.log("Document written with ID: ", docRef.id);
 }
+
+// 
